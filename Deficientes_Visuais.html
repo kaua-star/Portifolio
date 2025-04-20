@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mensagem Acessível</title>
+</head>
+<body>
+
+  <!-- Título principal da página -->
+  <h1 id="titulo">Bem-vindo!</h1>
+
+  <!-- Parágrafo com a mensagem que será lida em voz alta -->
+  <p id="mensagem">Esta é uma mensagem acessível para pessoas com deficiência visual.</p>
+  
+ 
+
+  <!-- Botão que ao ser pressionado ativa a leitura da mensagem -->
+  <button onclick="lerMensagem()" aria-label="Ouvir a mensagem de boas-vindas">
+    Ouvir mensagem
+  </button>
+
+  <script>
+    // Função que lê a mensagem em voz alta
+    function lerMensagem() {
+      // Captura o texto dentro do parágrafo com id "mensagem"
+      const texto = document.getElementById("mensagem").textContent;
+
+      // Cria um objeto de fala do navegador
+      const fala = new SpeechSynthesisUtterance(texto);
+
+      // Define o idioma da fala para português do Brasil
+      fala.lang = "pt-BR";
+
+      // Comando para o navegador falar o texto
+      speechSynthesis.speak(fala);
+    }
+  </script>
+
+</body>
+</html>
